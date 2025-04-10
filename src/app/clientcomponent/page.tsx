@@ -1,6 +1,7 @@
 import ExampleClientComponent from "./ExampleClientComponent";
 
-export default function ClientComponentPage ()  {
+export default function ClientComponentPage() {
+  const x;
   return (
     <>
       <h1>Client Component</h1>
@@ -8,4 +9,4 @@ export default function ClientComponentPage ()  {
       <ExampleClientComponent />
     </>
   );
-};
+}
