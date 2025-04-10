@@ -1,7 +1,8 @@
-# HUSKY
+# HUSKY (https://www.youtube.com/watch?v=Z-ZeBrZ6f5U)
 npm i -D husky
 npx husky init
 entered .husky folder and pre-commit add this line (npm run lint | bun run lint )
+npm install lint-staged -D
 
 # Static Assets in `public`
 Next.js can serve static files, like images, under a folder called public in the root directory. Files inside public can then be referenced by your code starting from the base URL (/).
