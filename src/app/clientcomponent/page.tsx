@@ -2,6 +2,7 @@ import ExampleClientComponent from "./ExampleClientComponent";
 
 export default function ClientComponentPage() {
   const x;
+  var y;
   return (
     <>
       <h1>Client Component</h1>
