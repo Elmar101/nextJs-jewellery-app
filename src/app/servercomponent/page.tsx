@@ -1,6 +1,4 @@
 export default function ClientComponentPage() {
-  const name = "Client Component Page";
-  const y = "Client Component Page";
   return (
     <>
       <h1>SERVER COMPONENT</h1>

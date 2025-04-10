@@ -11,15 +11,10 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
-      "prettier --write"
+      "eslint"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
+ 
   "dependencies": {
     "next": "15.1.6",
     "react": "^19.0.0",

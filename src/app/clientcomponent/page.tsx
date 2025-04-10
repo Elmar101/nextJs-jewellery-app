@@ -1,8 +1,6 @@
 import ExampleClientComponent from "./ExampleClientComponent";
 
 export default function ClientComponentPage() {
-  var n;
-  var y;
   return (
     <>
       <h1>Client Component</h1>
