@@ -1,7 +1,7 @@
 import ExampleClientComponent from "./ExampleClientComponent";
 
 export default function ClientComponentPage() {
-  const x;
+  var n;
   var y;
   return (
     <>
