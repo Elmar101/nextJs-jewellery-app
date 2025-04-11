@@ -1,4 +1,5 @@
 export default function ClientComponentPage() {
+  let x;
   return (
     <>
       <h1>SERVER COMPONENT</h1>
