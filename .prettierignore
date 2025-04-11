@@ -1,3 +1,7 @@
 # Ignore artifacts:
+# .prettierignore
+node_modules
 build
-coverage
+.next
+dist
+bun.lock

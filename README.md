@@ -1,3 +1,9 @@
+- ESLINT => https://eslint.org/
+- ESLINT STYLE => https://eslint.style/packages/ts
+- PRETTIER => https://prettier.io/
+- PRE-COMMIT => https://prettier.io/docs/precommit
+- LINT STAGED => https://github.com/lint-staged/lint-staged
+
 # ESLINT + PRETTIER (https://www.youtube.com/watch?v=F0IrHtPo-Ec&list=PL1TrjkMQ8UbVjig1BXDBo1oMzMgVc5I_a)
 
 # ESLINT configuration
@@ -55,7 +61,9 @@ ESLint-in Prettier-ə inteqrasiya etmək üçün istifadə olunur.
 
 # HUSKY (https://www.youtube.com/watch?v=Z-ZeBrZ6f5U) HUSKY+ lint-staged => (https://www.youtube.com/watch?v=bL5GaBjKAAw)
 
-npm i -D husky npx husky init entered .husky folder and pre-commit add this line (npm run lint | bun run lint ) npm install lint-staged -D npm install @commitlint/cli @commitlint/config-conventional --save-dev
+1. npm i -D husky npx husky init entered
+2. .husky folder and pre-commit add this line (npm run lint | bun run lint )
+3. npm install lint-staged -D AND npm install @commitlint/cli @commitlint/config-conventional --save-dev npm install -D @commitlint/config-conventional @commitlint/cli create commitlint.config.js file and add this line module.exports = { extends: ['@commitlint/config-conventional'] }
 
 # Static Assets in `public`
 
