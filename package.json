@@ -12,9 +12,17 @@
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
       "eslint"
+    ],
+    "*.{ts,tsx,js,jsx,json,md,css,scss}": [
+      "prettier --write"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
     ]
   },
- 
   "dependencies": {
     "next": "15.1.6",
     "react": "^19.0.0",
