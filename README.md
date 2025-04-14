@@ -53,7 +53,7 @@ ESLint-in Prettier-ə inteqrasiya etmək üçün istifadə olunur.
 1. npm install --save-dev eslint-plugin-prettier eslint-config-prettier -D | bun add -D eslint-plugin-prettier eslint-config-prettier | pnpm add -D eslint-plugin-prettier eslint-config-prettier | yarn add -D eslint-plugin-prettier eslint-config-prettier
 2. npm install --save-dev --save-exact prettier | bun add --save-dev --save-exact prettier | pnpm add --save-dev --save-exact prettier | yarn add --save-dev --save-exact prettier
 
-3. add "plugin:prettier/recommended" in extends from eslintConfig (extends: ["next/core-web-vitals", "next/typescript", "plugin:prettier/recommended"]) old wersion of eslintConfig new version we add -> import eslintConfigPrettier from "eslint-config-prettier/flat"; and add eslintConfigPrettier this line to extends in eslint.config.js
+3. add "plugin:prettier/recommended" in extends from eslintConfig extends: ["next/core-web-vitals", "next/typescript", "plugin:prettier/recommended"] -> old wersion of eslintConfig new version we add -> import eslintConfigPrettier from "eslint-config-prettier/flat"; and add eslintConfigPrettier this line to extends in eslint.config.js
 4. "format": "prettier src --write \"\*_/_.{ts,tsx,js,jsx,json,md,css,scss}\"", add this line to package.json of scripts or "format": "prettier . --write" dont need extension "format": "prettier . --write" . is for all files (we can write folder name like src)' now we can remove "source.fixAll.eslint": true this line in "editor.codeActionsOnSave" from settings.json
 5. npm run format | bun run format | pnpm run format | yarn run format
 
