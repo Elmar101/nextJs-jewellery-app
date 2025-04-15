@@ -1,6 +1,7 @@
 {
   "extends": ["stylelint-config-standard"],
   "customSyntax": "postcss-lit",
+  "ignoreFiles": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
   "rules": {
     "color-name": "never",
     "at-rule-no-unknown": [
