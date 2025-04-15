@@ -30,6 +30,7 @@ const eslintConfig = [
       'no-var': 'error',
       'no-unused-vars': 'warn',
       '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   }),
   eslintConfigPrettier,

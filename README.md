@@ -64,9 +64,20 @@ ESLint-in Prettier-ə inteqrasiya etmək üçün istifadə olunur.
 1. npm i -D husky npx husky init entered
 2. .husky folder and pre-commit add this line (npm run lint | bun run lint )
 3. npm install lint-staged -D AND npm install @commitlint/cli @commitlint/config-conventional --save-dev npm install -D @commitlint/config-conventional @commitlint/cli create commitlint.config.js file and add this line module.exports = { extends: ['@commitlint/config-conventional'] }
+4. git commit -m"fix: foo" --no-verify -> skip husky commit
+
+## STYLELINT -> Linting CSS (https://stylelint.io/user-guide/get-started)
+
+1. npm init stylelint -D
+2. npx stylelint "\*_/_.css"
+3. add the following scripts to package.json  
+   "stylelint": "stylelint src/**/\*.{css,scss}", "stylelint:fix": "stylelint src/**/\*.{css,scss} --fix"
+4. we install stylelint extenssion for VSCode or other tools that we show errors and warnings in VSCode or other tools
+
+## TYPESCRIPT ESLINT RULES => http://typescript-eslint.io/rules/no-explicit-any/
+
+# --------------------------------------------------------------------------------------------------------------------
 
 # Static Assets in `public`
 
-Next.js can serve static files, like images, under a folder called public in the root directory. Files inside public can then be referenced by your code starting from the base URL (/).
-
-For example, the file public/avatars/me.png can be viewed by visiting the /avatars/me.png path. The code to display that image might look like
+Next.js can serve static files, like images, under a folder called public in the root directory. Files inside public can then be referenced by your code starting from the base URL (/). For example, the file public/avatars/me.png can be viewed by visiting the /avatars/me.png path. The code to display that image might look like

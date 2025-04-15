@@ -10,7 +10,9 @@
     "lint:fix": "eslint src --fix",
     "format": "prettier src --write --ignore-unknown",
     "format:check": "prettier . --check",
-    "prepare": "husky"
+    "prepare": "husky",
+    "stylelint": "stylelint src/**/*.{css,scss}",
+    "stylelint:fix": "stylelint src/**/*.{css,scss} --fix"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
@@ -18,9 +20,6 @@
     ],
     "*.{ts,tsx,js,jsx,json,md,css,scss}": [
       "prettier --write"
-    ],
-    "*.{css,scss}": [
-      "stylelint --fix"
     ],
     "*.{json,md}": [
       "prettier --write"
@@ -39,7 +38,6 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9.19.0",
     "eslint-config-next": "15.1.6",
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-prettier": "^5.2.6",
@@ -47,8 +45,10 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
     "postcss": "^8",
+    "postcss-lit": "^1.2.0",
     "prettier": "3.5.3",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "stylelint": "^16.18.0",
+    "stylelint-config-standard": "^38.0.0",
+    "tailwindcss": "^3.4.1"
   }
 }
