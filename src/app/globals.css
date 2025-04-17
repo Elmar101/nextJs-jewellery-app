@@ -14,7 +14,7 @@ body {
 }
 
 .font-roboto-mono {
-  font-family: var(--font-roboto-mono);
+  font-family: var(--font-roboto_mono);
 }
 
 @media (prefers-color-scheme: dark) {

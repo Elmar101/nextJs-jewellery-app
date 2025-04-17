@@ -3,10 +3,10 @@ import { Inter, Roboto_Mono } from 'next/font/google';
 
 export const fontCalSans = localFont({
   src: './CalSans-SemiBold.woff2',
-  variable: '--font-calSans',
   display: 'swap',
   weight: '900',
   style: 'normal',
+  variable: '--font-calSans',
 });
 
 export const inter = Inter({
@@ -20,5 +20,5 @@ export const roboto_mono = Roboto_Mono({
   subsets: ['latin'],
   display: 'swap',
   weight: '700',
-  variable: '--font-roboto-mono',
+  variable: '--font-roboto_mono',
 });

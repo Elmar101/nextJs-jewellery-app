@@ -13,11 +13,11 @@ export default {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
       },
-      fontFamily: {
-        calSans: ['var(--font-calSans)', ...fontFamily.sans],
-        inter: ['var(--font-inter)', ...fontFamily.sans],
-        roboto_mono: ['var(--font-roboto-mono)', ...fontFamily.sans],
-      },
+      // fontFamily: {
+      //   calSans: ['var(--font-calSans)', ...fontFamily.sans],
+      //   inter: ['var(--font-inter)', ...fontFamily.sans],
+      //   roboto_mono: ['var(--font-roboto_mono)', ...fontFamily.sans],
+      // },
     },
   },
   plugins: [],
