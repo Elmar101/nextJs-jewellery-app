@@ -21,10 +21,7 @@ const eslintConfig = [
       prettier: eslintPluginPrettier,
     },
     rules: {
-      // Lazımsız importları silmək üçün
       "unused-imports/no-unused-imports": "error",
-
-      // İstifadə olunmayan dəyişənlərə xəbərdarlıq vermək üçün
       "unused-imports/no-unused-vars": [
         "warn",
         {
@@ -34,14 +31,10 @@ const eslintConfig = [
           argsIgnorePattern: "^_",
         },
       ],
-
-      // ESLint-in Prettier qaydaları ilə uyğun işləməsi üçün
       "prettier/prettier": "error",
-
-      // TypeScript üçün əlavə qaydalar
       "@typescript-eslint/no-unused-vars": "off",
     },
-    ignores: [".next/", "node_modules/"], // ESLint-in yoxlamayacağı qovluqlar
+    ignores: [".next/", "node_modules/"],
   },
 ];
 
