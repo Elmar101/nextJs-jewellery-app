@@ -14,26 +14,28 @@ const eslintConfig = [
   ...compat.config({
     extends: ['next/core-web-vitals', 'next/typescript'],
     rules: {
-      'react/react-in-jsx-scope': 'off',
-      'import/no-anonymous-default-export': [
-        'error',
+      // Lazımsız importları silmək üçün
+      "unused-imports/no-unused-imports": "error",
+
+      // İstifadə olunmayan dəyişənlərə xəbərdarlıq vermək üçün
+      "unused-imports/no-unused-vars": [
+        "warn",
         {
-          allowArray: true,
-          allowArrowFunction: true,
-          allowAnonymousClass: true,
-          allowAnonymousFunction: true,
-          allowCallExpression: true,
-          allowLiteral: true,
-          allowObject: true,
+          vars: "all",
+          varsIgnorePattern: "^_",
+          args: "after-used",
+          argsIgnorePattern: "^_",
         },
       ],
-      'no-var': 'error',
-      'no-unused-vars': 'warn',
-      '@typescript-eslint/no-unused-vars': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
+
+      // ESLint-in Prettier qaydaları ilə uyğun işləməsi üçün
+      "prettier/prettier": "error",
+
+      // TypeScript üçün əlavə qaydalar
+      "@typescript-eslint/no-unused-vars": "off",
     },
+    ignores: [".next/", "node_modules/"], // ESLint-in yoxlamayacağı qovluqlar
   }),
-  eslintConfigPrettier,
 ];
 
 export default eslintConfig;
