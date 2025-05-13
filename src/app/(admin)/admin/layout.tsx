@@ -1,14 +1,30 @@
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://example.com"),
   title: "Admin Layout",
   description: "Admin Layout",
   viewport: "width=device-width, initial-scale=1",
-  themeColor: "#000000",
-  lang: "en",
+  themeColor: "blue",
   icons: {
-    icon: "/admin-logo.png",
+    icon: [
+      {
+        url: "/admin-logo.ico",
+        media: "(prefers-color-scheme: light)",
+        href: "/admin-logo.ico",
+      },
+      {
+        url: "/logico.ico",
+        media: "(prefers-color-scheme: dark)",
+        href: "/logico.ico",
+      },
+    ],
   },
   manifest: "/manifest.json",
   robots: "noindex",
+  applicationName: "Admin Layout Aplication Name",
+  authors: [{ name: "Elmar" }],
+  creator: "Eldar",
 };
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

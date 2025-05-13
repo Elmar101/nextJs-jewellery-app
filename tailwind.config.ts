@@ -61,6 +61,11 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      // fontFamily: {
+      //   calSans: ['var(--font-calSans)', ...fontFamily.sans],
+      //   inter: ['var(--font-inter)', ...fontFamily.sans],
+      //   roboto_mono: ['var(--font-roboto_mono)', ...fontFamily.sans],
+      // },
     },
   },
   plugins: [tailwindcssAnimate, heroui()],
