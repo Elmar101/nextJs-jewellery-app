@@ -23,6 +23,12 @@ const Header = () => {
           </Link>
           <Link
             className="text-white hover:text-gray-300 font-bold"
+            href="/blog"
+          >
+            Blogs
+          </Link>
+          <Link
+            className="text-white hover:text-gray-300 font-bold"
             href="/contact"
           >
             Contact
@@ -54,11 +60,11 @@ const Header = () => {
         </nav>
         <div className="flex space-x-2 items-center">
           <Button variant="secondary">
-            <Search />
+            <Search className="text-white font-bold text-2xl" />
           </Button>
           <Button variant="secondary">
             <Link href="/login">
-              <User />
+              <User className="text-white font-bold text-2xl"/>
             </Link>
           </Button>
           <MobileMenu />

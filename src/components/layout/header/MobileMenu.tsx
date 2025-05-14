@@ -14,7 +14,7 @@ const MobileMenu = () => {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="secondary" className="md:hidden">
+        <Button variant="secondary" className="md:hidden text-white font-bold text-2xl">
           <Menu />
         </Button>
       </SheetTrigger>
@@ -46,24 +46,6 @@ const MobileMenu = () => {
               href="/products"
             >
               Products
-            </Link>
-            <Link
-              className="text-black hover:text-gray-300 font-bold"
-              href="/cart"
-            >
-              Cart
-            </Link>
-            <Link
-              className="text-black hover:text-gray-300 font-bold"
-              href="/login"
-            >
-              Login
-            </Link>
-            <Link
-              className="text-black hover:text-gray-300 font-bold"
-              href="/register"
-            >
-              Register
             </Link>
           </nav>
         </SheetHeader>
