@@ -1,4 +1,3 @@
-import { NextRequest } from "next/server";
 import { blogs } from './data';
 
 export const GET = async (): Promise<Response> => {
