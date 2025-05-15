@@ -1,72 +1,53 @@
-import { Button } from "@/components/ui/button";
-import { Search, User } from "lucide-react";
-import Link from "next/link";
-import React from "react";
-import MobileMenu from "./MobileMenu";
+import { Button } from '@/components/ui/button';
+import { Search, User } from 'lucide-react';
+import Link from 'next/link';
+import React from 'react';
+import MobileMenu from './MobileMenu';
+import { ModeToggle } from './ModeToggle';
 
 const Header = () => {
   return (
-    <div className="bg-mySecondarycolor shadow-sm top-0">
-      <div className="container mx-auto py-3 px-4 flex justify-between items-center">
-        <Link className="text-white font-bold text-2xl" href="/">
+    <div className="header-bg shadow-sm top-0">
+      <div className="container mx-auto flex items-center justify-between px-4 py-3">
+        <Link className='text-2xl text-white font-bold hover:text-blue-500 dark:hover:text-slate-100' href="/">
           Logo
         </Link>
         <nav className="hidden md:flex space-x-6">
-          <Link className="text-white hover:text-gray-300 font-bold" href="/">
+          <Link className="text-white font-bold hover:underline" href="/">
             Home
           </Link>
-          <Link
-            className="text-white hover:text-gray-300 font-bold"
-            href="/about"
-          >
+          <Link className="text-white font-bold hover:underline" href="/about">
             About
           </Link>
-          <Link
-            className="text-white hover:text-gray-300 font-bold"
-            href="/blog"
-          >
+          <Link className="text-white font-bold hover:underline" href="/blog">
             Blogs
           </Link>
-          <Link
-            className="text-white hover:text-gray-300 font-bold"
-            href="/contact"
-          >
+          <Link className="text-white font-bold hover:underline" href="/contact">
             Contact
           </Link>
-          <Link
-            className="text-white hover:text-gray-300 font-bold"
-            href="/products"
-          >
+          <Link className="text-white font-bold hover:underline" href="/products">
             Products
           </Link>
-          <Link
-            className="text-white hover:text-gray-300 font-bold"
-            href="/cart"
-          >
+          <Link className="text-white font-bold hover:underline" href="/cart">
             Cart
           </Link>
-          <Link
-            className="text-white hover:text-gray-300 font-bold"
-            href="/login"
-          >
+          <Link className="text-white font-bold hover:underline" href="/login">
             Login
           </Link>
-          <Link
-            className="text-white hover:text-gray-300 font-bold"
-            href="/register"
-          >
+          <Link className="text-white font-bold hover:underline" href="/register">
             Register
           </Link>
         </nav>
-        <div className="flex space-x-2 items-center">
+        <div className="flex items-center space-x-2">
           <Button variant="secondary">
-            <Search className="text-white font-bold text-2xl" />
+            <Search className="font-bold text-2xl" />
           </Button>
           <Button variant="secondary">
             <Link href="/login">
-              <User className="text-white font-bold text-2xl"/>
+              <User className="font-bold text-2xl" />
             </Link>
           </Button>
+          <ModeToggle />
           <MobileMenu />
         </div>
       </div>
