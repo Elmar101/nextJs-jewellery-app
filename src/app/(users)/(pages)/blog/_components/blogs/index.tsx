@@ -20,7 +20,6 @@ const BlogList = async () => {
     console.error('Error fetching posts:', error);
     posts = [];
   }
-  const fn = () => {};
 
   return (
     <div className="container mx-auto py-8">
