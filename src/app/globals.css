@@ -76,7 +76,3 @@ body {
 .header-bg {
   @apply bg-my_color_light-primary dark:bg-my_color_dark-primary !important;
 }
-
-.text {
-  color: var(--foreground);
-}
