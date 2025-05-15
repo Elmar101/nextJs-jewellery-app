@@ -29,7 +29,11 @@ const BlogList = async () => {
         {posts.map(post => (
           <li key={post.id} className="bg-gray-100 p-4 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2 dark: text-black">{post.title}</h2>
-            <p className="text-gray-600">{post.body}</p>
+            <p className="text-gray-600">{post.content}</p>
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(post) }}
+            />
           </li>
         ))}
       </ul>
