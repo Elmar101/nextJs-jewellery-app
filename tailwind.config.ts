@@ -14,15 +14,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        myPrimarycolor: '#38454a',
-        mySecondarycolor: '#248afd',
-        mycolordark: {
+        my_primary_color: '#38454a',
+        my_secondary_color: '#248afd',
+        my_color_dark: {
           primary: '#248afd',
-          primaryHover: '#1e70d3',
+          primary_hover: '#1e70d3',
         },
-        mycolorlight: {
+        my_color_light: {
           primary: '#38454a',
-          primaryHover: '#2c373b',
+          primary_hover: '#2c373b',
         },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
