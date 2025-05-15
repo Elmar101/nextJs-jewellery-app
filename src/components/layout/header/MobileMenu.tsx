@@ -29,10 +29,10 @@ const MobileMenu = () => {
             <Link className=" hover:text-gray-300 font-bold" href="/contact">
               Contact
             </Link>
-            <Link className=" hover:text-gray-300 font-bold" href="/products">
+            <Link className=" hover:text-gray-300 font-bold" href="/product">
               Products
             </Link>
-             <Link className=" hover:text-gray-300 font-bold" href="/blog">
+            <Link className=" hover:text-gray-300 font-bold" href="/blog">
               blog
             </Link>
           </nav>
