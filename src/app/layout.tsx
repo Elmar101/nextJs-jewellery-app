@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { fontCalSans, inter, roboto_mono } from '../../public/assets/fonts';
+import { ThemeProvider } from './context/ThemeProvider';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,7 +16,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${fontCalSans.variable} ${inter.variable} ${roboto_mono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

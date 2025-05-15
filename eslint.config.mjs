@@ -13,6 +13,7 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   {
+    ignores: [".next/", "node_modules/"],
     plugins: {
       unusedImports: unusedImportsPlugin,
     },
