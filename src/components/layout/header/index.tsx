@@ -9,7 +9,10 @@ const Header = () => {
   return (
     <div className="header-bg shadow-sm top-0">
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
-        <Link className='text-2xl text-white font-bold hover:text-blue-500 dark:hover:text-slate-100' href="/">
+        <Link
+          className="text-2xl text-white font-bold hover:text-blue-500 dark:hover:text-slate-100"
+          href="/"
+        >
           Logo
         </Link>
         <nav className="hidden md:flex space-x-6">
@@ -25,17 +28,8 @@ const Header = () => {
           <Link className="text-white font-bold hover:underline" href="/contact">
             Contact
           </Link>
-          <Link className="text-white font-bold hover:underline" href="/products">
+          <Link className="text-white font-bold hover:underline" href="/product">
             Products
-          </Link>
-          <Link className="text-white font-bold hover:underline" href="/cart">
-            Cart
-          </Link>
-          <Link className="text-white font-bold hover:underline" href="/login">
-            Login
-          </Link>
-          <Link className="text-white font-bold hover:underline" href="/register">
-            Register
           </Link>
         </nav>
         <div className="flex items-center space-x-2">
