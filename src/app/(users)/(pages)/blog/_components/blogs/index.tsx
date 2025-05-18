@@ -26,6 +26,7 @@ const BlogList = async () => {
 
   return (
     <div className="container mx-auto py-8">
+      process.env.NODE_ENV{process.env.NODE_ENV}
       <h1 className="text-2xl font-bold mb-4">Blog Posts</h1>
       <ul className="space-y-4">
         {posts.length === 0 && <p>No posts available.</p>}
