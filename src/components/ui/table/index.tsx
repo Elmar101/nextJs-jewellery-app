@@ -44,37 +44,56 @@ export function Table<T extends Record<string, any>>({
 }: DataTableProps<T>) {
   const [filters, setFilters] = useState<Record<string, string>>({});
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>({
-    column: (columns[0]?.key as string) || '',
+    column: '',
     direction: 'ascending',
   });
 
-  // Filtrləri ilkin olaraq qur
   useEffect(() => {
     const initialFilters: Record<string, string> = {};
     columns.forEach(column => {
       initialFilters[String(column.key)] = '';
     });
     setFilters(initialFilters);
+
+    // İlk column-u default sort kimi qur
+    if (columns.length > 0) {
+      setSortDescriptor({
+        column: String(columns[0].key),
+        direction: 'ascending',
+      });
+    }
   }, [columns]);
 
-  // Filter və sort tətbiqi
-  const sortedAndFilteredData = useMemo(() => {
+  const handleFilterChange = (key: string, value: string): void => {
+    setFilters(prev => ({
+      ...prev,
+      [key]: value,
+    }));
+    // Sort burada dəyişmir
+  };
+
+  const filteredData = useMemo(() => {
     if (!dataSource) return [];
 
-    const filtered = dataSource.filter(item => {
-      return Object.keys(filters).every(key => {
+    return dataSource.filter(item =>
+      Object.keys(filters).every(key => {
         const filterValue = filters[key]?.toLowerCase() || '';
         if (!filterValue) return true;
 
         const itemValue = String(item[key as keyof T] || '').toLowerCase();
         return itemValue.includes(filterValue);
-      });
-    });
+      }),
+    );
+  }, [dataSource, filters]);
 
-    return [...filtered].sort((a, b) => {
-      const columnKey = sortDescriptor.column as keyof T;
-      const first = a[columnKey] || '';
-      const second = b[columnKey] || '';
+  const sortedData = useMemo(() => {
+    if (!sortDescriptor.column) return filteredData;
+
+    const columnKey = sortDescriptor.column as keyof T;
+
+    return [...filteredData].sort((a, b) => {
+      const first = a[columnKey] ?? '';
+      const second = b[columnKey] ?? '';
 
       if (!isNaN(Number(first)) && !isNaN(Number(second))) {
         return sortDescriptor.direction === 'ascending'
@@ -85,24 +104,16 @@ export function Table<T extends Record<string, any>>({
       const cmp = String(first).localeCompare(String(second));
       return sortDescriptor.direction === 'ascending' ? cmp : -cmp;
     });
-  }, [dataSource, filters, sortDescriptor]);
+  }, [filteredData, sortDescriptor.column, sortDescriptor.direction]);
 
-  // ✅ Səhifəyə uyğun datanı kəs
   const pagedData = useMemo(() => {
-    if (!pagination) return sortedAndFilteredData;
+    if (!pagination) return sortedData;
     const start = (pagination.page - 1) * pagination.pageSize;
     const end = start + pagination.pageSize;
-    return sortedAndFilteredData.slice(start, end);
-  }, [sortedAndFilteredData, pagination]);
+    return sortedData.slice(start, end);
+  }, [sortedData, pagination]);
 
-  const loadingState = isLoading ? 'loading' : dataSource.length === 0 ? 'loading' : 'idle';
-
-  const handleFilterChange = (key: string, value: string): void => {
-    setFilters(prev => ({
-      ...prev,
-      [key]: value,
-    }));
-  };
+  const loadingState = isLoading && dataSource.length === 0 ? 'loading' : 'idle';
 
   const renderFilterInput = (columnKey: string): React.ReactNode => (
     <Input
@@ -134,30 +145,32 @@ export function Table<T extends Record<string, any>>({
       <div className="flex flex-col gap-2 w-full">
         <div className="flex items-center">
           <span>{label}</span>
-          <Tooltip content={`Sort by ${label}`}>
-            <Button
-              isIconOnly
-              variant="light"
-              size="sm"
-              className="ml-1"
-              onPress={() => {
-                if (isSorted) {
-                  setSortDescriptor({
-                    column: columnKeyStr,
-                    direction:
-                      sortDescriptor.direction === 'ascending' ? 'descending' : 'ascending',
-                  });
-                } else {
-                  setSortDescriptor({
-                    column: columnKeyStr,
-                    direction: 'ascending',
-                  });
-                }
-              }}
-            >
-              {sortIcon}
-            </Button>
-          </Tooltip>
+          {column.allowsSorting && (
+            <Tooltip content={`Sort by ${label}`}>
+              <Button
+                isIconOnly
+                variant="light"
+                size="sm"
+                className="ml-1"
+                onPress={() => {
+                  if (isSorted) {
+                    setSortDescriptor({
+                      column: columnKeyStr,
+                      direction:
+                        sortDescriptor.direction === 'ascending' ? 'descending' : 'ascending',
+                    });
+                  } else {
+                    setSortDescriptor({
+                      column: columnKeyStr,
+                      direction: 'ascending',
+                    });
+                  }
+                }}
+              >
+                {sortIcon}
+              </Button>
+            </Tooltip>
+          )}
         </div>
         {renderFilterInput(columnKeyStr)}
       </div>
@@ -177,33 +190,34 @@ export function Table<T extends Record<string, any>>({
                 showShadow
                 color="primary"
                 page={pagination.page}
-                total={Math.ceil(sortedAndFilteredData.length / pagination.pageSize)}
+                total={Math.ceil(sortedData.length / pagination.pageSize)}
                 onChange={pagination.onPageChange}
               />
             </div>
           ) : null
         }
-        sortDescriptor={sortDescriptor}
-        onSortChange={setSortDescriptor}
         removeWrapper
       >
         <TableHeader>
           {columns.map(column => (
-            <TableColumn key={String(column.key)} allowsSorting={column.allowsSorting}>
+            <TableColumn key={String(column.key)} allowsSorting={false}>
               {renderColumnHeader(column)}
             </TableColumn>
           ))}
         </TableHeader>
         <TableBody
           items={pagedData}
-          loadingContent={<Spinner label="Loading data..." />}
+          loadingContent={loadingState ? <Spinner label="Loading data..." /> : null}
           loadingState={loadingState}
           emptyContent={'No results found'}
         >
           {(item: T) => {
             const rowKey = item.id || item.key || JSON.stringify(item);
             return (
-              <TableRow key={rowKey}>
+              <TableRow
+                key={rowKey}
+                className="hover:bg-gray-100 transition-colors duration-200 cursor-pointer"
+              >
                 {columnKey => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
               </TableRow>
             );
