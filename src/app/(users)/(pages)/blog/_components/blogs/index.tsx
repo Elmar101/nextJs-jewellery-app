@@ -1,7 +1,10 @@
 import { IPosts } from '@/app/(users)/api/blog/types';
 import React from 'react';
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://next-js-15-jewellery-app.vercel.app'
+    : 'http://localhost:3000';
 const getPosts = async (): Promise<IPosts[]> => {
   const response = await fetch(`${baseUrl}/api/blog`);
   if (!response.ok) {
